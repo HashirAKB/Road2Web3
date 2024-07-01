@@ -44,5 +44,24 @@ contract SimpleStorage {
     function retrieveWillWork() public pure returns(uint256){
         return 7; //returns just a 7, not a state, so this'll work with pure.
     }
+
+       //01.07.2024
+    //Arrays and Structs in solidity.
+    uint256[] listOfFavouriteNumbers; //[0, 1, 22, 2343] Declaring lists/arrays
+    struct Person{
+        uint256 favouriteNumber; //at Index 0
+        string name;//at index 1
+    } //Declared a structure
+    // Person public Om = Person({favouriteNumber:5, name:"Omkar Shankar"});
+    // Person public Ram = Person({favouriteNumber:8, name:"Ram Pavan"});
+
+    //Lets create an array of persons. This is a dynamic array
+    Person[] public listOfPeople; //[]
+    Person[2] public parents; //Static array, only two items. Any size upto 2.
+
+    //lets create a fn to add people/update the listOfPeople array:
+    function addPerson(string memory _name, uint256 _favouriteNumber) public {
+        listOfPeople.push(Person(_favouriteNumber, _name));
+    }
 }
 
