@@ -63,5 +63,34 @@ contract SimpleStorage {
     function addPerson(string memory _name, uint256 _favouriteNumber) public {
         listOfPeople.push(Person(_favouriteNumber, _name));
     }
+
+    //Memory Keyword/Storage and call data.
+    //EVM can read & write to: Stack,Memory,Storage,Transient Storage, CallData, Code, and Returndata.
+    //EVM write only: logs.
+    //EVM read only: Txn data and blobHash, Chain Data, Gas Data, Program Counter
+
+    //CallData, Memory, and Storage.
+    //Calldata and memory is only gonna exist during function call. Exists for a very short period of time for the single cal.
+
+    // function addPerson(string memory _name, uint256 _favouriteNumber) public {
+    //     // _name = "Rat"; //Will work with memory but not with calldata.
+    //     listOfPeople.push(Person(_favouriteNumber, _name));
+    // }
+    //The diff bw memory and calldata is that they both are temporary variables but memory can be modified and calldata can't.
+    //Storage is a permanent variable that can be modified.
+
+    //Basic Solidity Mapping
+     mapping(string => uint256) public nameToFavouriteNumber; //in a mappig the default value for all the keys will be 0.
+    function addPerson(string memory _name, uint256 _favouriteNumber) public {
+        // _name = "Rat"; //Will work with memory but not with calldata.
+        listOfPeople.push(Person(_favouriteNumber, _name));
+        nameToFavouriteNumber[_name] = _favouriteNumber;
+    }
+
+    //Contract Deployed - Address: 0x017fEaE56a36e9F8335525995e7A478171102514
+    //Deployed a contract to sepolia eth test network.
+    https://sepolia.etherscan.io/address/0x017fEaE56a36e9F8335525995e7A478171102514
+    //Deployed the contract to L2 zksync sepolia test net via zksync atlas - Address: 0x8bFFC62FdfFB9540Dc3dEA3b2AC22FEE9dE920fA
+    https://sepolia.explorer.zksync.io/address/0x8bFFC62FdfFB9540Dc3dEA3b2AC22FEE9dE920fA
 }
 
