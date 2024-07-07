@@ -70,7 +70,7 @@ contract FundMe{
         // require(sendSuccess, "send failed");
         //call
         (bool callSuccess, ) = payable(msg.sender).call{value: address(this).balance}("");
-        require(sendSuccess, "call failed");
+        require(callSuccess, "call failed");
         //THE ABOVE METHOD SHOULD BE MOVED AS A CONSTRUCTOR, ELSE ANYBODY CAN CALL THE FN AND WITHDRAW THE FUNDS.
     }
 
