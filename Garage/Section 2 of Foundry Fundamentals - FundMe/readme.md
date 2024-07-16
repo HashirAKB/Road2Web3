@@ -24,4 +24,24 @@
 
 - anything before startbroadcast is not accounted as a real txn.
 
-- 
+13.07.2024:
+    - Wrote custom mock tests for priceFeed.
+    - ![Initial test coverage.](image.png)
+    - ![After adding few more tests](image-1.png)
+    - Storage varialbles should start with 's_'.
+    - Foundry Chisel to get line by line solidity code information.
+    - forge snapshot --match-test testWithrawWithMultipleFunder ==> Generates a gas information snapshot file.
+    - forge inspect FundMe storageLayout ==> Returns the storage layout of the contract.
+    - cast storage <address> index ==> return the storage at the index.
+
+14.07.2024:
+    - Proper ReadMe
+    - Integration Tests
+    - Programatic verification
+    - Push to GitHub
+    - We don't have a programatic way to interact with out smartcontracts here. Ex: Funding and Withdrawing.
+    - We can use 'forge script' for a reproducible way to actually fund and withdraw.
+    ffi = true; in foundry toml means that foundry can run commands directly into your machine.
+    - Integration tests are for testing interaction scripts.
+    - Automating smart contract actions using Make files.
+    - Go through the makefile of the foundry-f23 github repo.
