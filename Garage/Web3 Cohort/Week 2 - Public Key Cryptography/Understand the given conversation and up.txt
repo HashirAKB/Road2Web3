@@ -1,0 +1,32 @@
+Understand the given conversation and update the readme. Only share the modifed part of the readme:
+```
+Can we add demonstration of Symetric encryption and decryption using AES?
+I'll add symmetric encryption and decryption using AES (Advanced Encryption Standard) to our encoding/decoding demo. We'll use the `crypto-js` library for this purpose. Let's update our component to include this functionality.
+Here's a breakdown of the changes made to add AES encryption and decryption:
+
+1. Added the `crypto-js` import at the top of the file.
+2. Implemented two new functions: `aesEncrypt` and `aesDecrypt` using the CryptoJS library.
+3. Added new options in the RadioGroup for AES Encrypt and AES Decrypt.
+4. Created a new state variable `key` to store the encryption/decryption key.
+5. Added a conditional rendering for the key input field, which appears only when AES Encrypt or AES Decrypt is selected.
+6. Updated the `handleEncodeDecode` function to include cases for AES encryption and decryption.
+7. Modified the `updatePlaceholder` function to include placeholders for AES operations.
+
+
+This implementation now includes symmetric encryption and decryption using AES, alongside the existing encoding and decoding methods. Users can input their text and an encryption key to encrypt or decrypt messages using the AES algorithm.
+
+To use this updated component, you'll need to install the `crypto-js` package in your projec
+
+It'll be good if I hover over any of those Encyption buttons, something will come up on the screen that explains how that encryption/description happens shortly.
+:
+I'll add tooltips to the encryption/decryption buttons that explain how each method works. We'll use the Tooltip component from shadcn/ui for this purpose.
+1. Imported the necessary Tooltip components from shadcn/ui: `Tooltip`, `TooltipContent`, `TooltipProvider`, and `TooltipTrigger`.
+2. Added a `methodDescriptions` object that contains short explanations for each encryption/decryption method.
+3. Wrapped the entire component with `<TooltipProvider>` to enable tooltips throughout the component.
+4. Replaced the hardcoded radio buttons with a dynamic mapping of the `methodDescriptions` object.
+5. Each radio button is now wrapped in a `Tooltip` component:
+
+1. The `TooltipTrigger` is the radio button itself.
+2. The `TooltipContent` contains the description of the method.
+
+These changes provide a more informative user interface. When users hover over any of the encryption/decryption buttons, a tooltip will appear with a brief explanation of how that method works.

@@ -1,0 +1,1 @@
+- Pretty Basic things that I already knew.
